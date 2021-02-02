@@ -94,7 +94,6 @@
              <table id="myTable" class="table">
                 <caption>Delete Product</caption>
  <thead class="thead-dark">
-		<table>
             <tr>
                 <td>Product Id</td>
                 <td>{{$productId}}</td>
