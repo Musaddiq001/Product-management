@@ -4,10 +4,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>New Product</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
 
         <!-- Styles -->
         <style>
@@ -45,7 +47,7 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 60px;
             }
 
             .links > a {
@@ -61,6 +63,9 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+             {
+  caption-side: top;
+}
         </style>
     </head>
     <body>
@@ -79,15 +84,39 @@
                 </div>
             @endif
 
+            <form method="post" enctype="multipart/form-data">
+        {{csrf_field()}}
+
             <div class="content">
-                <div class="title m-b-md">
-                    Products list
+            	<div class="links">
+                    <a href="{{route('product')}}">All Products</a>
+                    <a href="/">Home</a>
+                </div>
                 </div>
 
-                <div class="links">
-                    
-                </div>
-            </div>
-        </div>
+            	
+            <table id="myTable" class="table">
+                <caption>Add New Product</caption>
+ <thead class="thead-dark">
+			<tr>
+				<td>Name</td>
+				<td><input type="text" name="name"></td>
+			</tr>
+			<tr>
+				<td>EXP DATE</td>
+				<td><input type="DATE" name="exp" ></td>
+			</tr>
+			<tr>
+				<td>Price</td>
+				<td><input type="text" name="price"></td>
+			</tr>
+			
+			<tr>
+				<td></td>
+				<td><input type="submit" name="submit" value="Create"></td>
+			</tr>
+		</table>
+</table>
+
     </body>
 </html>

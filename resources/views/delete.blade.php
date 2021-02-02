@@ -4,10 +4,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>New Product</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
 
         <!-- Styles -->
         <style>
@@ -61,6 +63,9 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+             {
+  caption-side: top;
+}
         </style>
     </head>
     <body>
@@ -80,15 +85,54 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Welcome to Rahim Store
+            	<div class="links">
+                    <a href="{{route('product')}}">Back</a>
+                    <a href="/">Home</a>
                 </div>
+                </div>
+            	
+             <table id="myTable" class="table">
+                <caption>Delete Product</caption>
+ <thead class="thead-dark">
+		<table>
+            <tr>
+                <td>Product Id</td>
+                <td>{{$productId}}</td>
+            </tr>
+            <tr>
+                <td>Product Name</td>
+                <td>{{$productName}}</td>
+            </tr>
+            <tr>
+                <td>EXP Date</td>
+                <td>{{$expdate}}</td>
+            </tr>
+            
+            <tr>
+                <td>Price</td>
+                <td>{{$price}}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
 
-                <div class="links">
-                    <a href="{{route('product')}}">View Products</a>
-                    <a href="{{route('new')}}">Add new Product</a>
-                </div>
-            </div>
-        </div>
+                <form method="post">
+            {{csrf_field()}} <input type="hidden" name="productId" value="{{$productId}}">
+            <input type="submit" name="submit" value="Confirm" button onclick="myFunction()"> </form></td>    
+            
+        </table>
+</table>
+
+
+<script>
+function myFunction() {
+  alert("Are you sure? This can't be undone!");
+}
+</script>
+
+           
+		
+</table>
+
     </body>
 </html>

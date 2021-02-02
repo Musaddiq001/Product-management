@@ -4,10 +4,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>New Product</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
 
         <!-- Styles -->
         <style>
@@ -61,6 +63,9 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+             {
+  caption-side: top;
+}
         </style>
     </head>
     <body>
@@ -79,16 +84,44 @@
                 </div>
             @endif
 
+            <form method="post">
+        {{csrf_field()}}
+                
+
             <div class="content">
-                <div class="title m-b-md">
-                    Welcome to Rahim Store
+            	<div class="links">
+                    <a href="{{route('product')}}">Back</a>
+                    <a href="/">Home</a>
+                </div>
                 </div>
 
-                <div class="links">
-                    <a href="{{route('product')}}">View Products</a>
-                    <a href="{{route('new')}}">Add new Product</a>
-                </div>
-            </div>
-        </div>
+
+             <table id="myTable" class="table">
+                <caption>Edit Product Details</caption>
+ <thead class="thead-dark">
+		
+            <tr>
+                <td>Prudct Id</td>
+                <td><input type="text" readonly name="id" value="{{$productId}}"></td>
+            </tr>
+            <tr>
+                <td>Product Name</td>
+                <td><input type="text" name="name" value="{{$productName}}"></td>
+            </tr>
+            <tr>
+                <td>EXP Date</td>
+                <td><input type="date" name="exp" value="{{$expdate}}"></td>
+            </tr>
+                <td>Price</td>
+                <td><input type="text" name="price" value="{{$price}}"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" name="submit" value="Save"></td>
+            </tr>
+        </table>
+        </table>
+</table>
+
     </body>
 </html>
